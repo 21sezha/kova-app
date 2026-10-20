@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kova</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- home -->
+        <section class="screen active" id="home">
+            <p class="hi">Hi, 21!</p>
+            <div class="card">
+                <p>Available balance</p>
+                <h1>$24,850.75</h1>
+            </div>
+            <button class="main-btn" onclick="showScreen('amount')">Send Money</button>
+            <h3>Recent</h3>
+            <div class="item"><span>Stripe Payouts</span> <span class="green">+$3,250</span></div>
+            <div class="item"><span>Okoli Onyedika</span> <span class="red">-$400</span></div>
+            <div class="item"><span>Giovanny Gabriel</span> <span class="red">-$250</span></div>
+        </section>
+
+        <!-- amount -->
+        <section class="screen" id="amount">
+            <button class="back" onclick="showScreen('home')">← Back</button>
+            <p class="center">Send to Okoli Onyedika</p>
+            <h1 class="amount" id="display">$0</h1>
+            <div class="keypad">
+                <button onclick="press('1')">1</button>
+                <button onclick="press('2')">2</button>
+                <button onclick="press('3')">3</button>
+                <button onclick="press('4')">4</button>
+                <button onclick="press('5')">5</button>
+                <button onclick="press('6')">6</button>
+                <button onclick="press('7')">7</button>
+                <button onclick="press('8')">8</button>
+                <button onclick="press('9')">9</button>
+                <button onclick="press('.')">.</button>
+                <button onclick="press('0')">0</button>
+                <button onclick="deleteLast()">x</button>
+            </div>
+            <button class="main-btn" onclick="goReview()">Continue</button>
+        </section>
+
+        <!-- review -->
+        <section class="screen" id="review">
+            <button class="back" onclick="showScreen('amount')">← Back</button>
+            <h2>Review Transfer</h2>
+            <div class="card white">
+                <p>Sending to</p>
+                <h3>Okoli Onyedika</h3>
+                <h1 id="reviewAmount">$0</h1>
+                <div class="row"><span>Fee</span><span>$0.00</span></div>
+                <div class="row"><span>Total</span><span id="total">$0</span></div>
+            </div>
+            <button class="main-btn" onclick="confirmSend()">Confirm & Send</button>
+        </section>
+
+        <!-- success -->
+         <section class="screen" id="success">
+            <div class="tick">←</div>
+            <h2 class="center">Transfer Successful</h2>
+            <h1 class="center" id="successfulAmount">$0</h1>
+            <button class="main-btn" onclick="resetApp()">Done</button>
+         </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
